@@ -1,0 +1,47 @@
+[
+  {
+    "id": "u_admin",
+    "username": "admin",
+    "password_hash": "scrypt:32768:8:1$BTGTUeAC8VgfG5Ee$4b272d1309a431b48df1b4c38ed8029cbebec6dbedacdf0d098e0fbc3c2d1519c73c8e9d861edff148f14efec8fd9f3649b1a9cc339e608823275e2eac6603aa",
+    "display_name": "Administrator",
+    "role": "admin",
+    "active": true,
+    "created_at": "2026-07-29T12:38:45"
+  },
+  {
+    "id": "u_worker",
+    "username": "worker",
+    "password_hash": "scrypt:32768:8:1$QIeEnxnD1Ke2PlKW$e6e63dc46e212aed02b44db4a4c3831af41a96780848672d025e61529b61f17a055c94380852cc6379408bf80b8491832d34d8488d5ef5b1b9d19625abac40d1",
+    "display_name": "Waki",
+    "role": "driver",
+    "active": true,
+    "created_at": "2026-07-29T12:38:46"
+  },
+  {
+    "id": "u_kiddie",
+    "username": "kiddie",
+    "password_hash": "scrypt:32768:8:1$TpZjjdtd1si3tnZI$d772eece89ca5f7dd58aaebab13395a97b8b9ce8f91620f9dd2ab999072ea57e0e3f32632ac5b761b62eae786400c8f1f170e794b1a4401bd28a0f3712843581",
+    "display_name": "Kiddie",
+    "role": "driver",
+    "active": true,
+    "created_at": "2026-07-29T14:12:57"
+  },
+  {
+    "id": "u_bagger",
+    "username": "bagger",
+    "password_hash": "scrypt:32768:8:1$g5BKgRNKjUopc6cH$dfc24460e6dabe00a3de9d5c7f837b4c0628ed73559c15015e8041e98d0925d309aec9bc52d017aff6da4bf90f129f0a0486ac16ab6365079b1ca717e95f69f9",
+    "display_name": "Bagger",
+    "role": "bagger",
+    "active": true,
+    "created_at": "2026-07-29T19:30:01"
+  },
+  {
+    "id": "u8441e8ae",
+    "username": "joel",
+    "password_hash": "scrypt:32768:8:1$fRS2uzUEl5QmmnUO$14f61d8622f150a16c0166ed139768b3975251b33263d3b04c00be6895e714f47badb439b983521ebb254dde517bc3b615bf3225970fb36fc2008aa6c7369063",
+    "display_name": "Osei joel",
+    "role": "bagger",
+    "active": true,
+    "created_at": "2026-07-29T20:16:12"
+  }
+]

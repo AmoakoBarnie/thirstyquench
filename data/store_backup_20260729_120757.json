@@ -1,0 +1,112 @@
+{
+  "settings": {
+    "bag_price": 6.5,
+    "default_bagger_rate": 0.3,
+    "business_name": "Thirsty Quench (TQ)",
+    "currency": "₵"
+  },
+  "daily": [
+    {
+      "id": "d1",
+      "date": "2026-07-25",
+      "week": 30,
+      "produced": 200,
+      "sold_out": 0,
+      "asanteman": 0,
+      "sold_inside": 0,
+      "fuel": 0,
+      "new_debt": 0,
+      "debt_paid": 0
+    },
+    {
+      "id": "d2",
+      "date": "2026-07-26",
+      "week": 30,
+      "produced": 300,
+      "sold_out": 0,
+      "asanteman": 0,
+      "sold_inside": 0,
+      "fuel": 0,
+      "new_debt": 0,
+      "debt_paid": 0
+    },
+    {
+      "id": "d3",
+      "date": "2026-07-27",
+      "week": 31,
+      "produced": 400,
+      "sold_out": 571,
+      "asanteman": 313,
+      "sold_inside": 0,
+      "fuel": 250.0,
+      "new_debt": 445.0,
+      "debt_paid": 0
+    }
+  ],
+  "expenses": [
+    {
+      "id": "e1",
+      "date": "2026-07-27",
+      "description": "Pelleting",
+      "amount": 150,
+      "notes": ""
+    },
+    {
+      "id": "e2",
+      "date": "2026-07-27",
+      "description": "Battery",
+      "amount": 80,
+      "notes": ""
+    }
+  ],
+  "baggers": [
+    {
+      "id": "b1",
+      "date": "2026-07-25",
+      "worker": "Angelo",
+      "bags_done": 200,
+      "rate": 0.3,
+      "paid": true
+    },
+    {
+      "id": "b2",
+      "date": "2026-07-26",
+      "worker": "Angelo",
+      "bags_done": 300,
+      "rate": 0.3,
+      "paid": true
+    },
+    {
+      "id": "b3",
+      "date": "2026-07-27",
+      "worker": "Angelo",
+      "bags_done": 200,
+      "rate": 0.3,
+      "paid": true
+    },
+    {
+      "id": "b4",
+      "date": "2026-07-27",
+      "worker": "Bernice",
+      "bags_done": 200.0,
+      "rate": 0.3,
+      "paid": false
+    }
+  ],
+  "materials": [
+    {
+      "id": "m1",
+      "date": "2026-07-24",
+      "item": "Roll",
+      "amount": 10170,
+      "notes": ""
+    },
+    {
+      "id": "m2",
+      "date": "2026-07-24",
+      "item": "Packing",
+      "amount": 1650,
+      "notes": ""
+    }
+  ]
+}

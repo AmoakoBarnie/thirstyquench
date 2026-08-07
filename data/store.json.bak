@@ -1,0 +1,294 @@
+{
+  "daily": [
+    {
+      "date": "2026-07-25",
+      "produced": 200,
+      "sold_out": null,
+      "asanteman": null,
+      "sold_inside": null,
+      "fuel": null,
+      "new_debt": null,
+      "id": "c80884cf"
+    },
+    {
+      "date": "2026-07-26",
+      "produced": 300,
+      "sold_out": null,
+      "asanteman": null,
+      "sold_inside": null,
+      "fuel": null,
+      "new_debt": null,
+      "id": "bc9fa187"
+    },
+    {
+      "date": "2026-07-27",
+      "produced": 400.0,
+      "sold_out": 571.0,
+      "asanteman": 313.0,
+      "sold_inside": 0,
+      "fuel": 250.0,
+      "new_debt": 445.0,
+      "id": "377162ec",
+      "week": 31.0,
+      "debt_paid": 445.0,
+      "updated_by": "admin",
+      "updated_at": "2026-07-31T15:51:21"
+    },
+    {
+      "date": "2026-07-29",
+      "produced": 200.0,
+      "sold_out": 307.0,
+      "asanteman": 245.0,
+      "sold_inside": 0,
+      "fuel": 200.0,
+      "new_debt": 0,
+      "id": "043ef2c4",
+      "debt_paid": 21,
+      "week": 31.0,
+      "updated_by": "admin",
+      "updated_at": "2026-07-31T15:50:58"
+    },
+    {
+      "date": "2026-07-30",
+      "produced": null,
+      "sold_out": null,
+      "asanteman": null,
+      "sold_inside": null,
+      "fuel": null,
+      "new_debt": null,
+      "id": "d736e675"
+    },
+    {
+      "id": "d0c2bbbd1",
+      "date": "2026-07-31",
+      "week": 31.0,
+      "description": "",
+      "produced": 500.0,
+      "sold_out": 741.0,
+      "asanteman": 0.0,
+      "sold_inside": 0.0,
+      "fuel": 350.0,
+      "new_debt": 900.0,
+      "debt_paid": 0.0,
+      "created_by": "admin",
+      "created_at": "2026-07-31T19:02:49",
+      "updated_by": "admin",
+      "updated_at": "2026-08-03T11:33:47"
+    },
+    {
+      "id": "d53acb389",
+      "date": "2026-08-01",
+      "week": 31,
+      "description": "",
+      "produced": 0,
+      "sold_out": 200,
+      "asanteman": 0,
+      "sold_inside": 0,
+      "fuel": 300,
+      "new_debt": 0,
+      "debt_paid": 70,
+      "created_by": "admin",
+      "created_at": "2026-08-01T16:56:00"
+    },
+    {
+      "id": "d2b009bc2",
+      "date": "2026-08-03",
+      "week": 31.0,
+      "description": "",
+      "produced": 0.0,
+      "sold_out": 566.0,
+      "asanteman": 0.0,
+      "sold_inside": 0.0,
+      "fuel": 0.0,
+      "new_debt": 0.0,
+      "debt_paid": 200.0,
+      "created_by": "admin",
+      "created_at": "2026-08-03T10:36:46",
+      "updated_by": "admin",
+      "updated_at": "2026-08-03T11:33:19"
+    }
+  ],
+  "expenses": [
+    {
+      "date": "2026-07-27",
+      "description": "Pelleting",
+      "amount": 150,
+      "id": "4e5ee988"
+    },
+    {
+      "date": "2026-07-27",
+      "description": "Battery",
+      "amount": 80,
+      "id": "8f7ad9f7"
+    },
+    {
+      "date": "2026-07-29",
+      "description": "Key Expenses",
+      "amount": 70,
+      "id": "b7d1fd1b"
+    },
+    {
+      "date": "2026-07-29",
+      "description": "Car Fix",
+      "amount": 1000,
+      "notes": "",
+      "id": "5d3150"
+    },
+    {
+      "id": "ee114dd80",
+      "date": "2026-07-31",
+      "description": "Battery",
+      "amount": 1000,
+      "notes": "",
+      "created_by": "admin",
+      "created_at": "2026-07-31T19:02:49"
+    },
+    {
+      "id": "ebae0b4bd",
+      "date": "2026-08-01",
+      "description": "Palleting",
+      "amount": 150,
+      "notes": "",
+      "created_by": "admin",
+      "created_at": "2026-08-01T16:56:00"
+    },
+    {
+      "id": "e068287c8",
+      "date": "2026-08-01",
+      "description": "Membrane wash",
+      "amount": 400,
+      "notes": "",
+      "created_by": "admin",
+      "created_at": "2026-08-01T16:56:00"
+    },
+    {
+      "id": "e14ccd63f",
+      "date": "2026-08-01",
+      "description": "Tank was washed",
+      "amount": 100,
+      "notes": "",
+      "created_by": "admin",
+      "created_at": "2026-08-02T10:30:47"
+    },
+    {
+      "date": "2026-08-31",
+      "description": "car fix",
+      "amount": 600.0,
+      "notes": null,
+      "id": "e983ca23f",
+      "created_by": "admin",
+      "created_at": "2026-08-03T11:32:19"
+    }
+  ],
+  "baggers": [
+    {
+      "date": "2026-07-25",
+      "worker": "Angelo",
+      "bags_done": 200,
+      "rate": 0.3,
+      "paid": true,
+      "id": "e8b11dc1"
+    },
+    {
+      "date": "2026-07-26",
+      "worker": "Angelo",
+      "bags_done": 300,
+      "rate": 0.3,
+      "paid": true,
+      "id": "fb12f8de"
+    },
+    {
+      "date": "2026-07-27",
+      "worker": "Angelo",
+      "bags_done": 200,
+      "rate": 0.3,
+      "paid": true,
+      "id": "dead0cec"
+    },
+    {
+      "date": "2026-07-27",
+      "worker": "Bernice",
+      "bags_done": 200,
+      "rate": 0.3,
+      "paid": true,
+      "id": "5954ffb3"
+    },
+    {
+      "date": "2026-07-29",
+      "worker": "Angelo",
+      "bags_done": 200,
+      "rate": 0.3,
+      "paid": true,
+      "id": "29452b93"
+    },
+    {
+      "date": "2026-07-30",
+      "worker": "Joelene",
+      "bags_done": 900.0,
+      "rate": 0.3,
+      "paid": true,
+      "id": "620e4663",
+      "updated_by": "admin",
+      "updated_at": "2026-07-31T15:50:19"
+    },
+    {
+      "date": "2026-07-31",
+      "worker": "Angelo",
+      "bags_done": 300,
+      "rate": 0.3,
+      "paid": true,
+      "id": "9be91686"
+    },
+    {
+      "date": "2026-07-31",
+      "worker": "Joelene",
+      "bags_done": 200,
+      "rate": 0.3,
+      "paid": true,
+      "id": "1a9b8658"
+    },
+    {
+      "id": "b5abd4c0a",
+      "date": "2026-08-01",
+      "worker": "Angelo",
+      "bags_done": 200.0,
+      "rate": 0.3,
+      "paid": true,
+      "created_by": "admin",
+      "created_at": "2026-08-02T10:30:47",
+      "updated_by": "admin",
+      "updated_at": "2026-08-03T11:25:54"
+    },
+    {
+      "id": "b02cddf51",
+      "date": "2026-08-01",
+      "worker": "Joelene",
+      "bags_done": 100.0,
+      "rate": 0.3,
+      "paid": true,
+      "created_by": "admin",
+      "created_at": "2026-08-02T10:30:47",
+      "updated_by": "admin",
+      "updated_at": "2026-08-03T11:25:58"
+    }
+  ],
+  "materials": [
+    {
+      "date": "2026-07-24",
+      "item": "Roll",
+      "amount": 11107.0,
+      "notes": "",
+      "id": "d3c870c3"
+    },
+    {
+      "date": "2026-07-24",
+      "item": "Packing",
+      "amount": 1650.0,
+      "notes": "",
+      "id": "3bdefd3d"
+    }
+  ],
+  "settings": {
+    "bag_price": 6.5
+  }
+}

@@ -1,0 +1,26 @@
+🌐 LAN: http://192.168.1.44:8080
+🔒 Local: http://127.0.0.1:8080
+🛡  debug=False  signup=locked  https_cookies=False
+
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:8080
+Press CTRL+C to quit
+127.0.0.1 - - [03/Aug/2026 09:21:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2026 09:21:43] "GET /static/js/app.js HTTP/1.1" 304 -
+127.0.0.1 - - [03/Aug/2026 09:21:43] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [03/Aug/2026 09:21:43] "GET /api/data HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2026 09:21:43] "GET /api/users HTTP/1.1" 200 -
+csrf_rejected path=/api/baggers/b5abd4c0a method=PUT reason=no_submitted session_tok=5e577f96d543c910b4a0 submitted=None
+127.0.0.1 - - [03/Aug/2026 09:21:57] "PUT /api/baggers/b5abd4c0a HTTP/1.1" 400 -
+127.0.0.1 - - [03/Aug/2026 09:34:53] "GET / HTTP/1.1" 302 -
+127.0.0.1 - - [03/Aug/2026 09:34:53] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2026 09:37:16] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2026 09:37:16] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [03/Aug/2026 09:37:16] "GET /static/js/app.js HTTP/1.1" 304 -
+127.0.0.1 - - [03/Aug/2026 09:37:16] "GET /api/data HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2026 09:37:16] "GET /api/users HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2026 09:38:41] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [03/Aug/2026 09:38:41] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2026 09:44:11] "GET /api/debug/csrf HTTP/1.1" 200 -
