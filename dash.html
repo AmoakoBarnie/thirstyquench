@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Thirsty Quench · Balance Sheet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="/icon-192.png" />
+  <meta name="theme-color" content="#0b0f17" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="csrf-token" content="6f970141aef89f643b53d8bf0c120900b56b1eef3d0482fd" />
+  <script>
+    window.TQ_USER = {"active": true, "created_at": "2026-07-29T12:38:45", "display_name": "Administrator", "id": "u_admin", "role": "admin", "username": "admin"};
+    window.TQ_ROLE = "admin";
+    window.TQ_IS_ADMIN = true;
+    window.TQ_CSRF = "6f970141aef89f643b53d8bf0c120900b56b1eef3d0482fd";
+  </script>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">TQ</div>
+        <div>
+          <div class="brand-name" id="brandName">Thirsty Quench</div>
+          <div class="brand-sub">Balance Sheet</div>
+        </div>
+      </div>
+
+      <nav class="nav" id="nav">
+        <button class="nav-btn active" data-tab="dashboard"><span class="nav-icon">◈</span> Dashboard</button>
+        <button class="nav-btn" data-tab="daily"><span class="nav-icon">▦</span> Daily Records</button>
+        <button class="nav-btn" data-tab="baggers"><span class="nav-icon">◎</span> Bagger Pay</button>
+        <button class="nav-btn admin-only" data-tab="expenses" hidden><span class="nav-icon">◇</span> Expenses</button>
+        <button class="nav-btn admin-only" data-tab="materials" hidden><span class="nav-icon">▣</span> Raw Materials</button>
+        <button class="nav-btn admin-only" data-tab="weekly" hidden><span class="nav-icon">◫</span> Weekly Cost</button>
+        <button class="nav-btn" data-tab="account"><span class="nav-icon">⚿</span> My Account</button>
+      </nav>
+
+      <div class="sidebar-user">
+        <div class="user-avatar" id="userAvatar">A</div>
+        <div class="user-meta">
+          <div class="user-name" id="userName">—</div>
+          <div class="user-role" id="userRole">—</div>
+        </div>
+      </div>
+
+      <div class="sidebar-foot admin-only" id="cashFoot" hidden>
+        <div class="cash-pill" id="sidebarCash">₵ —</div>
+        <div class="muted small">Cash in hand</div>
+      </div>
+
+      <form method="post" action="/logout" class="logout-form">
+        <input type="hidden" name="csrf_token" value="6f970141aef89f643b53d8bf0c120900b56b1eef3d0482fd" />
+        <button type="submit" class="btn ghost block">Sign out</button>
+      </form>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+        <div class="topbar-title-wrap">
+          <h1 id="pageTitle">Dashboard</h1>
+          <p class="topbar-sub" id="pageSub">Operations overview</p>
+        </div>
+        <div class="topbar-actions admin-only" hidden>
+          <button class="btn ghost" id="exportBtn" title="Export JSON">Export</button>
+          <label class="btn ghost file-label" title="Import JSON">
+            Import
+            <input type="file" id="importFile" accept=".json,application/json" hidden />
+          </label>
+        </div>
+      </header>
+
+      <!-- DASHBOARD -->
+      <section class="tab active" id="tab-dashboard">
+        <div class="hero-grid" id="heroCards"></div>
+        <div class="split">
+          <div class="card">
+            <div class="card-head">
+              <h2>Latest day</h2>
+              <span class="badge" id="latestDate">—</span>
+            </div>
+            <div class="stat-list" id="latestStats"></div>
+          </div>
+          <div class="card">
+            <div class="card-head">
+              <h2 id="totalsTitle">Business totals</h2>
+            </div>
+            <div class="stat-list" id="allTimeStats"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2>Recent activity</h2></div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th class="num">Produced</th>
+                  <th class="num">Sold</th>
+                  <th class="num">Out sales ₵</th>
+                  <th class="num">Inside sales ₵</th>
+                  <th class="num admin-col" hidden>Calc. cash</th>
+                </tr>
+              </thead>
+              <tbody id="dashDailyBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- DAILY -->
+      <section class="tab" id="tab-daily">
+        <div class="toolbar">
+          <p class="muted">Log production, sales, fuel and debt for each day.</p>
+          <button class="btn primary" data-open="daily">+ Add day</button>
+        </div>
+        <div class="card">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th class="num">Wk</th>
+                  <th class="num">Produced</th>
+                  <th class="num">Sold out</th>
+                  <th class="num">Asanteman</th>
+                  <th class="num">Sold inside</th>
+                  <th class="num admin-col">Inside ₵</th>
+                  <th class="num admin-col">Out ₵</th>
+                  <th class="num">Fuel</th>
+                  <th class="num">New debt</th>
+                  <th class="num">Debt paid</th>
+                  <th class="num admin-col" hidden>Calc ₵</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="dailyBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- BAGGERS -->
+      <section class="tab" id="tab-baggers">
+        <div class="toolbar">
+          <p class="muted">Due = bags × rate. Only admin can mark payments as paid.</p>
+          <button class="btn primary" data-open="baggers">+ Add payment</button>
+        </div>
+        <div class="card">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Worker</th>
+                  <th class="num">Bags</th>
+                  <th class="num">Rate</th>
+                  <th class="num">Due ₵</th>
+                  <th>Paid?</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="baggersBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPENSES -->
+      <section class="tab" id="tab-expenses">
+        <div class="toolbar">
+          <p class="muted">Occasional costs. Use <strong>Money from Sir Rich</strong> for capital inflow (admin view).</p>
+          <button class="btn primary" data-open="expenses">+ Add expense</button>
+        </div>
+        <div class="card">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Description</th>
+                  <th class="num">Amount ₵</th>
+                  <th>Notes</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="expensesBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- MATERIALS -->
+      <section class="tab" id="tab-materials">
+        <div class="toolbar">
+          <p class="muted">Rolls, packing and other raw inputs.</p>
+          <button class="btn primary" data-open="materials">+ Add material</button>
+        </div>
+        <div class="card">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Item</th>
+                  <th class="num">Amount ₵</th>
+                  <th>Notes</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="materialsBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- WEEKLY (admin) -->
+      <section class="tab" id="tab-weekly">
+        <div class="toolbar">
+          <p class="muted">ISO week number → production cost per bag.</p>
+        </div>
+        <div class="card narrow">
+          <label class="field">
+            <span>Week number</span>
+            <div class="row-inputs">
+              <input type="number" id="weekInput" min="1" max="53" placeholder="e.g. 30" />
+              <button class="btn primary" id="weekGo">Lookup</button>
+            </div>
+          </label>
+          <div class="stat-list" id="weeklyStats">
+            <div class="empty">Pick a week to see cost per bag.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- USERS (admin) -->
+      <section class="tab" id="tab-users">
+        <div class="toolbar">
+          <p class="muted">Create admin and worker accounts for staff on your network.</p>
+          <button class="btn primary" id="addUserBtn">+ Add user</button>
+        </div>
+        <div class="card">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Username</th>
+                  <th>Role</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="usersBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- SETTINGS (admin) -->
+      <section class="tab" id="tab-settings">
+        <div class="card narrow">
+          <h2>Business settings</h2>
+          <form id="settingsForm" class="form-grid">
+            <input type="hidden" name="csrf_token" value="6f970141aef89f643b53d8bf0c120900b56b1eef3d0482fd" />
+            <label class="field">
+              <span>Business name</span>
+              <input name="business_name" type="text" />
+            </label>
+            <label class="field">
+              <span>Bag selling price (₵)</span>
+              <input name="bag_price" type="number" step="0.01" min="0" />
+            </label>
+            <label class="field">
+              <span>Default bagger rate (₵/bag)</span>
+              <input name="default_bagger_rate" type="number" step="0.01" min="0" />
+            </label>
+            <label class="field">
+              <span>Currency symbol</span>
+              <input name="currency" type="text" maxlength="4" />
+            </label>
+            <button type="submit" class="btn primary">Save settings</button>
+          </form>
+          <p class="hint">
+            Inside cash = sold inside × price · Out cash = sold out × price<br />
+            Daily cash = out − fuel − new debt + debt paid − baggers − expenses − materials (same date)<br />
+            Cash in hand = Σ daily cash + Σ inside cash
+          </p>
+        </div>
+      </section>
+
+      <!-- ACCOUNT -->
+      <section class="tab" id="tab-account">
+        <div class="card narrow">
+          <h2>My account</h2>
+          <div class="stat-list" id="accountInfo" style="margin-bottom:1rem"></div>
+          <h3 class="section-label">Change password</h3>
+          <form id="passwordForm" class="form-grid">
+            <input type="hidden" name="csrf_token" value="6f970141aef89f643b53d8bf0c120900b56b1eef3d0482fd" />
+            <label class="field">
+              <span>Current password</span>
+              <input name="current_password" type="password" required autocomplete="current-password" />
+            </label>
+            <label class="field">
+              <span>New password</span>
+              <input name="new_password" type="password" required minlength="6" autocomplete="new-password" />
+            </label>
+            <label class="field">
+              <span>Confirm new password</span>
+              <input name="confirm_password" type="password" required minlength="6" autocomplete="new-password" />
+            </label>
+            <button type="submit" class="btn primary">Update password</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modal" hidden>
+    <div class="modal">
+      <div class="modal-head">
+        <h2 id="modalTitle">Add</h2>
+        <button class="icon-btn" id="modalClose" aria-label="Close">×</button>
+      </div>
+      <form id="modalForm" class="form-grid"></form>
+      <div class="modal-foot">
+        <button type="button" class="btn ghost" id="modalCancel">Cancel</button>
+        <button type="submit" form="modalForm" class="btn primary" id="modalSave">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+  <script src="/static/js/app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker
+          .register("/sw.js")
+          .catch(function (err) {
+            console.warn("SW registration failed:", err);
+          });
+      });
+    }
+  </script>
+</body>
+</html>

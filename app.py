@@ -89,6 +89,8 @@ Talisman(
         "font-src": "'self' https://fonts.gstatic.com",
         "img-src": "'self' data:",
         "connect-src": "'self'",
+        "worker-src": "'self'",
+        "manifest-src": "'self'",
         "frame-ancestors": "'none'",
         "base-uri": "'self'",
         "form-action": "'self'",
@@ -708,7 +710,7 @@ def _normalize_item(collection: str, item: dict) -> dict:
 
 # ── pages ─────────────────────────────────────────────────────────────────────
 @app.route("/login", methods=["GET", "POST"])
-@limiter.limit("5 per minute")
+@limiter.limit("5 per minute", methods=["POST"])
 def login():
     if current_user():
         return redirect(url_for("index"))
@@ -916,6 +918,42 @@ def index():
         is_admin=is_admin(user),
         csrf_token=_csrf_token(),
     )
+
+
+# ── PWA (installable phone app) ───────────────────────────────────────────────
+import os as _os
+
+_PWA_DIR = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "static")
+
+
+@app.route("/manifest.webmanifest")
+def pwa_manifest():
+    from flask import send_from_directory
+
+    return send_from_directory(
+        _PWA_DIR, "manifest.webmanifest", mimetype="application/manifest+json"
+    )
+
+
+@app.route("/sw.js")
+def pwa_sw():
+    from flask import send_from_directory
+
+    return send_from_directory(_PWA_DIR, "sw.js", mimetype="text/javascript")
+
+
+@app.route("/icon-192.png")
+def pwa_icon_192():
+    from flask import send_from_directory
+
+    return send_from_directory(_PWA_DIR, "icon-192.png", mimetype="image/png")
+
+
+@app.route("/icon-512.png")
+def pwa_icon_512():
+    from flask import send_from_directory
+
+    return send_from_directory(_PWA_DIR, "icon-512.png", mimetype="image/png")
 
 
 # ── auth API ──────────────────────────────────────────────────────────────────
